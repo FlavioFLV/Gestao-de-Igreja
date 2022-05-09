@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    font-family: sans-serif
+}
+.side-menu{
+    max-width: 321px;
+}
+.side-menu > ul > li:hover > a,
+.side-menu > ul > li.active > a {
+    /* color: #fff; */
+    background: lightgray;
+}
