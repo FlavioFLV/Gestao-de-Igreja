@@ -1,0 +1,105 @@
+<%- include('./partials/head') %>
+  <body>
+    <%- include('./partials/header') %>
+    <div class="screen">
+      <%- include('./partials/side-menu') %>
+      <div class="novoFechamento">
+        <div class="modal mes-novo-fechamento">
+          <p>Selecione o mês:</p>
+          
+        </div>
+        <section class="container-resumo-totais">
+          <div class="mes">
+            <span class="material-symbols-outlined calendar-month">calendar_month</span>
+            <p>Fevereiro / 2.022</p>
+          </div>
+          <div class="container-totais">
+            <div class="totais saldo-anterior">
+              <p class="titulo-totais">Saldo anterior</p>
+              <p class="valor-totais">R$ 1.500,00</p>
+            </div>
+            <div class="totais despesas">
+              <p class="titulo-totais">Despesas</p>
+              <p class="valor-totais">-R$ 1.500,00</p>
+            </div>
+            <div class="totais saldo-atual">
+              <p class="titulo-totais">Saldo Atual</p>
+              <p class="valor-totais saldo-atual">R$ 1.500,00</p>
+            </div>
+          </div>
+        </section>
+        <section class="lancamentos">
+          <div class="container-lancamentos">
+            <div class="inputs-form">
+              <label for="data">Data:</label>
+              <div class="input-date">
+                <input type="text" id="data" class="dataLancamento" name="data" autocomplete="off" placeholder="DD/MM/AAAA" maxlength="10" onkeypress="$(this).mask('00/00/0000')">
+                <div class="calendar">
+                  <%- include('./partials/calendar') %>
+                </div>
+                <a class="calendar-button" href="javascript:void(0)"><img src="/images/calendar.png" alt=""></a>
+              </div>
+            </div>
+            <div class="inputs-form">
+              <label for="tipo-movimento">Movimento:</label>
+              <select name="tipo-movimento" id="tipo-movimento">
+                <option value="ENTRADA">ENTRADA</option>
+                <option value="SAIDA">SAÍDA</option>
+              </select>
+            </div>
+            <div class="inputs-form">
+              <label></label>
+              <select hidden name="sub-tipo-movimento" class="sub-tipo-movimento mostrar">
+                <option value="OFERTA">OFERTA</option>
+                <option value="DÍZIMOS">DÍZIMOS</option>
+                <option value="RENDIMENTO DA APLICAÇÃO">RENDIMENTO DA APLICAÇÃO</option>
+                <option value="RENDIMENTO CONTA CORRENTE">RENDIMENTO CONTA CORRENTE</option>
+              </select>
+              <div hidden class="saida-parcelas">
+                <input type="checkbox" id="saida-parcelas">
+                <label for="saida-parcelas">Parcelas ?</label>
+                <input type="text" class="parcelas" name="saida-parcelas" maxlength="2" >
+              </div>
+            </div>
+            <div class="inputs-form">
+              <label for="valor">Valor (R$):</label>
+              <input type="text" id="valor" name="valor" maxlength="9" value="0,00">
+            </div>
+            <div class="inputs-form">
+              <label for="descricao">Descrição:</label>
+              <textarea name="descricao" id="descricao" cols="30" rows="5"></textarea>
+            </div>
+            <div class="enviar-lancamento">
+              <button>CONFIRMAR</button>
+            </div>
+          </div>
+          <table class="table-lancamentos">
+            <thead>
+              <tr class="colunas">
+                <th class="col-data"><div><p>Data</p><a href="javascript:void(0)"><span class="material-symbols-outlined sort">sort</span></a></div></th>
+                <th class="col-descricao"><div><p>Descrição</p><a href="javascript:void(0)"><span class="material-symbols-outlined sort-by-alpha">sort_by_alpha</span></a></div></th>
+                <th class="col-valor" colspan="2"><div><p>Valor (R$)</p><a href="javascript:void(0)"><span class="material-symbols-outlined sort">sort</span></a></div></th>
+                <th class="col-acoes"><div><p>Ações</p></div></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="linhas">
+                <td class="col-data">15/02/1993</td>
+                <td class="col-descricao">ENTRADA - OFERTA</td>
+                <td class="col-valor-negativo"><!--Valor negativo--></td>
+                <td class="col-valor-positivo">150,00</td>
+                <td class="col-acoes">
+                  <a href=""><span class="material-symbols-outlined edit">edit</span></a>
+                  <a href=""><span class="material-symbols-outlined delete">delete</span></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+    <script src="/javascripts/side-menu.js"></script>
+    <script src="/javascripts/novoFechamento.js"></script>
+    <script src="/javascripts/calendar.js"></script>
+  </body>
+  </html>
